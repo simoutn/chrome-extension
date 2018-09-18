@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
+	<script>
+		function saluer() 
+		{
+			var ajouterNom = (localStorage['nom']) ? ', ' + localStorage['nom'] : '';
+			if (!localStorage['compte'])
+			{
+				localStorage['compte'] = 1;
+				alert('Zozor te salue pour la première fois' + ajouterNom);
+			}
+			else
+			{
+				localStorage['compte'] = parseInt(localStorage['compte']) + 1;
+				alert('Zozor te salue une ' + localStorage['compte'] + 'eme fois' + ajouterNom);
+			}
+		}
+	</script>
+</head>
+
+<body>
+		<script>
+				localStorage['decompte']=1*10; //15*60 secondes <=> 15 minutes
+				function decompter()//appellée toute les 2 secondes
+					{
+						localStorage['decompte']=parseInt(localStorage['decompte'])-2;// -2 car c'est toutes les 2 secondes
+						if (parseInt(localStorage['decompte'])<=0)
+							{
+							alert("driiiiiiiiing : 15 minutes écoulées ! Fini l'ordinateur");//le pauvre
+							clearInterval(repetition);//on arrète le compte à rebours
+							}
+					}
+				var repetition = setInterval(decompter,2000);//toutes les 2 secondes -> ne pas surcharger le navigateur
+				</script>
+</body>
+
+</html>
